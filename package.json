@@ -1,6 +1,6 @@
 {
   "name": "applit",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Applit 🌶: Micro Web App Framework for building Stateful Apps with lit-html 🔥 View Layer",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -11,7 +11,14 @@
     "start:example": "parcel ./test-app/index.html -d build-testapp",
     "test": "jest"
   },
-  "keywords": ["lit-html", "spa", "stateful", "unidirectional", "data", "flow"],
+  "keywords": [
+    "lit-html",
+    "spa",
+    "stateful",
+    "unidirectional",
+    "data",
+    "flow"
+  ],
   "author": "Albert Groothedde",
   "license": "MIT",
   "dependencies": {
