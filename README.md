@@ -7,6 +7,13 @@ Applit ðŸŒ¶: Micro Web App Framework for building Stateful Apps with lit-html ðŸ
 **Early alpha** This project is more of a tryout to see if it's possible to create something like 
 [hyperapp](github.com/hyperapp/hyperapp) but make use of `lit-html` as view layer.
 
+#### Roadmap and ideas
+  
+* lifecycle events (oncreate, ondestroy, etc)
+* payload to call 'actions' with data
+* async (for calls to api's)
+* lazy components using [dynamic imports](https://github.com/tc39/proposal-dynamic-import)
+
 ## Example
 
 You can tryout an example [here https://codesandbox.io/s/xlr2pvmro4?module=%2Fsrc%2Findex.ts](https://codesandbox.io/s/xlr2pvmro4?module=%2Fsrc%2Findex.ts)
@@ -63,10 +70,6 @@ Now run Parcel and view it in your browser
 npx parcel ./src/index.html
 ```
 
-## Deployment
-
-Add additional notes about how to deploy this on a live system
-
 ## Contributing
 
 Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
@@ -83,7 +86,3 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 
 This project is licensed under the MIT License
 
-## Roadmap and ideas
-
-* lifecycle events (oncreate, ondestroy, etc)
-* 
