@@ -23,6 +23,7 @@ npm install --save-dev parcel
 Create an `src/index.js`
 
 ```javascript
+import { html } from 'lit-html'
 import { applit } from 'applit'
 
 const up = () => state => ({ count: state.count + 1 })
