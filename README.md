@@ -1,6 +1,6 @@
-# Applit
+# Applit 🌶
 
-Applit 🌶: Micro Web App Framework for building Stateful Apps with lit-html 🔥 View Layer
+Web App Framework for building Stateful Apps with lit-html 🔥 View Layer
 
 ## Status
 
@@ -16,7 +16,7 @@ Applit 🌶: Micro Web App Framework for building Stateful Apps with lit-html �
 
 ## Example
 
-You can tryout an example [here https://codesandbox.io/s/xlr2pvmro4?module=%2Fsrc%2Findex.ts](https://codesandbox.io/s/xlr2pvmro4?module=%2Fsrc%2Findex.ts)
+Try an example [here codesandbox.io](https://codesandbox.io/s/xlr2pvmro4?module=%2Fsrc%2Findex.ts)
 
 ## Getting Started
 
