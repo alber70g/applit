@@ -3,20 +3,15 @@
   "version": "0.0.2",
   "description": "Applit 🌶: Micro Web App Framework for building Stateful Apps with lit-html 🔥 View Layer",
   "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
-    "start": "parcel build ./src/index.ts",
-    "clean": "rm -rf dist build-testapp",
-    "example:start": "parcel ./test-app/index.html -d build-testapp",
+    "start": "tsc",
+    "start:watch": "tsc --watch",
+    "clean": "rm -rf dist",
+    "start:example": "parcel ./test-app/index.html -d build-testapp",
     "test": "jest"
   },
-  "keywords": [
-    "lit-html",
-    "spa",
-    "stateful",
-    "unidirectional",
-    "data",
-    "flow"
-  ],
+  "keywords": ["lit-html", "spa", "stateful", "unidirectional", "data", "flow"],
   "author": "Albert Groothedde",
   "license": "MIT",
   "dependencies": {
