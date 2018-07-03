@@ -7,6 +7,10 @@ Applit ðŸŒ¶: Micro Web App Framework for building Stateful Apps with lit-html ðŸ
 **Early alpha** This project is more of a tryout to see if it's possible to create something like 
 [hyperapp](github.com/hyperapp/hyperapp) but make use of `lit-html` as view layer.
 
+## Example
+
+You can tryout an example [here https://codesandbox.io/s/xlr2pvmro4?module=%2Fsrc%2Findex.ts](https://codesandbox.io/s/xlr2pvmro4?module=%2Fsrc%2Findex.ts)
+
 ## Getting Started
 
 This is a very minimal example to get you started. 
