@@ -5,9 +5,8 @@
   "main": "dist/index.js",
   "scripts": {
     "start": "parcel build ./src/index.ts",
-    "clean": "rm -rf dist testapp",
-    "example:start": "parcel ./test-app/index.html -d testapp",
-    "example:build": "parcel build ./test-app/index.html -d testapp-dist",
+    "clean": "rm -rf dist build-testapp",
+    "example:start": "parcel ./test-app/index.html -d build-testapp",
     "test": "jest"
   },
   "keywords": ["lit-html", "spa", "stateful", "unidirectional", "data", "flow"],
