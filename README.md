@@ -2,6 +2,11 @@
 
 Applit 🌶: Micro Web App Framework for building Stateful Apps with lit-html 🔥 View Layer
 
+## Status
+
+**Early alpha** This project is more of a tryout to see if it's possible to create something like 
+[hyperapp](github.com/hyperapp/hyperapp) but make use of `lit-html` as view layer.
+
 ## Getting Started
 
 This is a very minimal example to get you started. 
@@ -10,7 +15,8 @@ A simple counter, with `up` and `down` actions.
 Install applit and parcel (to build and run the app).
 
 ```bash
-npm install --save applit 
+npm init -y
+npm install --save applit lit-html
 npm install --save-dev parcel
 ```
 
