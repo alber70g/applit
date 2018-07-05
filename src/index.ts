@@ -1,37 +1,54 @@
-import { render } from 'lit-html';
-import { TemplateResult, directive } from 'lit-html';
+import {
+  TemplateResult,
+  directive,
+  AttributePart,
+  DirectiveFn,
+  render,
+  html,
+} from 'lit-html';
 
-const bindFactory = (
-  state: Map<any>,
-  view: (bind: any, state: Map<any>) => TemplateResult,
+const bindFactory = <TState>(
+  state: TState,
+  templateFn: TemplateFn<TState>,
   element: HTMLElement
-) => (action: any, bindFn: any) =>
-  directive((part: any) => {
-    if (part.name.indexOf('on') === 0) {
-      // part.element.onclick = () => {}
-      part.element[part.name] = (ev: Event) => {
-        state = action(ev)(state);
-        render(view(bindFn, state), element);
-      };
-    }
-  });
+) => {
+  const bindFn = (action: Action<TState>) =>
+    directive((attributePart: AttributePart) => {
+      if (attributePart.name.indexOf('on') === 0) {
+        (<any>attributePart.element)[attributePart.name] = (ev: Event) => {
+          state = action(ev)(state);
+          render(templateFn(bindFn, state), element);
+        };
+      }
+    });
+  return bindFn;
+};
 
-export const applit = (
-  init: (state?: any) => Map<any>,
-  view: (bind: any, state: Map<any>) => TemplateResult,
+export const applit = <TState>(
+  init: () => TState,
+  templateFn: TemplateFn<TState>,
   element: HTMLElement = document.body
 ) => {
-  const initState = init();
+  const state = init();
 
-  const bindFn = bindFactory(initState, view, element);
+  const bindFn = bindFactory<TState>(state, templateFn, element);
+  render(templateFn(bindFn, state), element);
 
-  render(view(bindFn, initState), element);
+  return bindFn;
 };
+
+export type TemplateFn<TState> = (
+  bind: BindFn<TState>,
+  state: TState
+) => TemplateResult;
+
+export type BindFn<TState> = (
+  action: Action<TState>,
+  path?: string
+) => DirectiveFn<AttributePart>;
 
 export type Map<T> = {
   [key: string]: T;
 };
 
-export type Action<TState = Map<any>> = (
-  ev: Event
-) => (state: TState) => TState;
+export type Action<TState> = (ev: Event) => (state: TState) => TState;
