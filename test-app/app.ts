@@ -41,7 +41,7 @@ const initialState = () => ({
   form: { input1: { value: '', dirty: false } },
 });
 
-const app = applit(
+const bind = applit(
   initialState,
   (bind, state) => html`
     <h1>Counter</h1>
@@ -59,8 +59,3 @@ const app = applit(
   `,
   document.body
 );
-
-// setInterval(app, 1000, () => (state) => ({
-//   ...state,
-//   count: state.count + 10,
-// }));

@@ -16,7 +16,7 @@ Web App Framework for building Stateful Apps with lit-html 🔥 View Layer
 
 ## Example
 
-Try an example [here codesandbox.io](https://codesandbox.io/s/xlr2pvmro4?module=%2Fsrc%2Findex.ts)
+Try an example [here codesandbox.io](https://codesandbox.io/s/xlr2pvmro4?module=index.ts)
 
 ## Getting Started
 
