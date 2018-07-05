@@ -4,10 +4,10 @@ Web App Framework for building Stateful Apps with lit-html 🔥 View Layer
 
 ## Status
 
-**Early alpha** This project is more of a tryout to see if it's possible to create something like 
-[hyperapp](github.com/hyperapp/hyperapp) but make use of `lit-html` as view layer.
+**Early alpha** This project tries to create a web-app framework that allows you to 
+have state build in and use the power of `lit-html` as view layer.
 
-#### Roadmap and ideas
+## Roadmap and ideas
   
 * lifecycle events (oncreate, ondestroy, etc)
 * payload to call 'actions' with data
