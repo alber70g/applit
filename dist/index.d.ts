@@ -1,6 +1,8 @@
-import { TemplateResult } from 'lit-html';
-export declare const applit: (init: (state?: any) => Map<any>, view: (bind: any, state: Map<any>) => TemplateResult, element?: HTMLElement) => void;
+import { TemplateResult, AttributePart, DirectiveFn } from 'lit-html';
+export declare const applit: <TState>(init: () => TState, templateFn: TemplateFn<TState>, element?: HTMLElement) => (action: Action<TState>) => DirectiveFn<AttributePart>;
+export declare type TemplateFn<TState> = (bind: BindFn<TState>, state: TState) => TemplateResult;
+export declare type BindFn<TState> = (action: Action<TState>, path?: string) => DirectiveFn<AttributePart>;
 export declare type Map<T> = {
     [key: string]: T;
 };
-export declare type Action<TState = Map<any>> = (ev: Event) => (state: TState) => TState;
+export declare type Action<TState> = (ev: Event) => (state: TState) => TState;
