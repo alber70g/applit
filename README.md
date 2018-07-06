@@ -9,14 +9,15 @@ have state build in and use the power of `lit-html` as view layer.
 
 ## Roadmap and ideas
   
-* lifecycle events (oncreate, ondestroy, etc)
-* payload to call 'actions' with data
-* async (for calls to api's)
-* lazy components using [dynamic imports](https://github.com/tc39/proposal-dynamic-import)
+  - [**0.0.5**](./CHANGELOG.md#0.0.5) update state outside the view
+  - lifecycle events (oncreate, ondestroy, etc)
+  - payload to call 'actions' with dynamic data
+  - async (for calls to api's)
+  - lazy components using [dynamic imports](https://github.com/tc39/proposal-dynamic-import)
 
 ## Example
 
-Try an example [here codesandbox.io](https://codesandbox.io/s/xlr2pvmro4?module=index.ts)
+Try an example [here codesandbox.io](https://codesandbox.io/embed/xlr2pvmro4)
 
 ## Getting Started
 
