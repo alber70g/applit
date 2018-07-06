@@ -4,8 +4,7 @@ Web App Framework for building Stateful Apps with lit-html 🔥 View Layer
 
 ## Status
 
-**Early alpha** This project tries to create a web-app framework that allows you to 
-have state build in and use the power of `lit-html` as view layer.
+**Early alpha** This project is in development phase. IT'll have breaking changes to the APIs until a first version is released. The roadmap below will give an insight in what will be the focus.
 
 ## Roadmap and ideas
   
