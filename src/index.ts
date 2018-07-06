@@ -4,40 +4,49 @@ import {
   AttributePart,
   DirectiveFn,
   render,
-  html,
 } from 'lit-html';
 
-const bindFactory = <TState>(
+const bindViewFactory = <TState>(
   state: TState,
-  templateFn: TemplateFn<TState>,
+  templateFn: View<TState>,
   element: HTMLElement
 ) => {
-  const bindFn = (action: Action<TState>) =>
-    directive((attributePart: AttributePart) => {
+  const bindFn = (templateFn: View<TState>, element: HTMLElement) => (
+    action: Action<TState>
+  ) => {
+    state = action()(state);
+    render(templateFn(bindViewFn, state), element);
+  };
+  const bindViewFn = (action: Action<TState>) => {
+    return directive((attributePart: AttributePart) => {
       if (attributePart.name.indexOf('on') === 0) {
+        // element.onclick = () => {}
         (<any>attributePart.element)[attributePart.name] = (ev: Event) => {
           state = action(ev)(state);
-          render(templateFn(bindFn, state), element);
+          render(templateFn(bindViewFn, state), element);
         };
       }
     });
-  return bindFn;
+  };
+  return { bindViewFn, bindFn };
 };
 
 export const applit = <TState>(
   init: () => TState,
-  templateFn: TemplateFn<TState>,
+  templateFn: View<TState>,
   element: HTMLElement = document.body
 ) => {
   const state = init();
 
-  const bindFn = bindFactory<TState>(state, templateFn, element);
-  render(templateFn(bindFn, state), element);
+  const viewFns = bindViewFactory<TState>(state, templateFn, element);
+  const bindFn = viewFns.bindFn(templateFn, element);
+
+  render(templateFn(viewFns.bindViewFn, state), element);
 
   return bindFn;
 };
 
-export type TemplateFn<TState> = (
+export type View<TState> = (
   bind: BindFn<TState>,
   state: TState
 ) => TemplateResult;
@@ -51,4 +60,6 @@ export type Map<T> = {
   [key: string]: T;
 };
 
-export type Action<TState> = (ev: Event) => (state: TState) => TState;
+export type Action<TState> = (ev?: Event) => (state: TState) => TState;
+
+export type DeepOptional<T> = { [P in keyof T]?: DeepOptional<T[P]> };

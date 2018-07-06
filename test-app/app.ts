@@ -1,61 +1,60 @@
 import { applit, Action } from '../src/index';
-import { html } from 'lit-html';
-import { asyncReplace } from 'lit-html/lib/async-replace';
+import { html } from 'lit-html/lib/lit-extended';
+import { counter, up } from './counter';
+import { link } from './link';
 
-const up: Action<AppState> = () => (state) => {
-  return { ...state, count: state.count + 1 };
-};
-
-const down: Action<AppState> = () => (state) => {
-  return { ...state, count: state.count - 1 };
-};
-
-const submitForm: Action<AppState> = (ev) => (state) => {
-  ev.preventDefault();
-  return {
-    ...state,
-    form: {
-      input1: { ...state.form.input1, value: (ev as any).target.naam.value },
-    },
+export type AppState = {
+  view: string;
+  count: number;
+  form: {
+    input1: {
+      value: string;
+      dirty: boolean;
+    };
   };
 };
 
-const setDirty: Action<AppState> = () => (state) => {
-  if (state.form.input1.dirty) return state;
-  return {
-    ...state,
-    form: {
-      ...state.form,
-      input1: {
-        ...state.form.input1,
-        dirty: true,
-      },
-    },
-  };
-};
+const layout = (bind, view, state) => html`
+    <p>
+      ${link(bind, {
+        href: '/',
+        title: 'Home',
+        view: 'home',
+      })} 
+      ${link(bind, {
+        href: '/counter',
+        title: 'Counter',
+        view: 'counter',
+      })} 
+    </p>
+    ${view}
+      
+    <fieldset style="margin-top: 20px; position: absolute; top: 10px; right: 10px; min-width: 350px">
+      <legend>Current state</legend>
+      <pre>${JSON.stringify(state, null, 2)}</pre>
+    </fieldset>
+  `;
 
-type AppState = ReturnType<typeof initialState>;
+const bind = applit<AppState>(
+  () => ({
+    count: 0,
+    view: 'counter',
+    form: { input1: { value: '', dirty: false } },
+  }),
+  (bind, state) => {
+    switch (state.view) {
+      case 'counter':
+        return layout(bind, counter(bind, state), state);
 
-const initialState = () => ({
-  count: 0,
-  form: { input1: { value: '', dirty: false } },
-});
-
-const bind = applit(
-  initialState,
-  (bind, state) => html`
-    <h1>Counter</h1>
-    <p>${state.count}</p>
-
-    <form onsubmit=${bind(submitForm)}>
-      <label>Naam <input name="naam" type="text" onkeyup=${bind(setDirty)} />
-      </label>
-    </form>
-
-    <button onclick=${bind(up)}>Up</button>
-    <button onclick=${bind(down)}>Down</button>
-
-    <pre>${JSON.stringify(state, null, 2)}</pre>
-  `,
+      case 'home':
+      default:
+        return layout(bind, html`<h1>Home</h1>`, state);
+    }
+    return html`
+    ${layout(bind, counter(bind, state), state)}
+  `;
+  },
   document.body
 );
+
+setInterval(() => bind(up), 1000);
