@@ -1,18 +1,15 @@
-# Applit 🌶
+# What is Applit 🌶
 
-Web App Framework for building Stateful Apps with lit-html 🔥 View Layer
+Applit is a web framework that drastically decreases the concepts to learn in order to build an application.
 
-## Status
+### Concepts
 
-**Early alpha** This project is in development phase. IT'll have breaking changes to the APIs until a first version is released. The roadmap below will give an insight in what will be the focus.
-
-## Roadmap and ideas
-  
-  - [**0.0.5**](./CHANGELOG.md#0.0.5) update state outside the view
-  - lifecycle events (oncreate, ondestroy, etc)
-  - payload to call 'actions' with dynamic data
-  - async (for calls to api's)
-  - lazy components using [dynamic imports](https://github.com/tc39/proposal-dynamic-import)
+- **state**: An object that represents the state of the application. (e.g. `{ count: 0 }`)
+- **view**: The view is a function of state (`view = f(state)`). The view is formed by using tagged templates. We use lit-html to create and rerender the DOM. (e.g. `` state => html`${state.count}` ``)
+- **reducer**: A function that takes a state and returns a modified new state   
+(e.g. `` up = state => ({ count: state.count + 1}) ``)
+- **bind**: This function is being passed to the `view`, in order to bind the `reducer` to the current state
+- **render cycle**: Whenever a call is made to a bound function, a rerender of the view will take place (e.g. `` bind(up)() ``)
 
 ## Example
 
@@ -69,6 +66,21 @@ Now run Parcel and view it in your browser
 ```bash
 npx parcel ./src/index.html
 ```
+
+## Status
+
+**Early alpha** This project is in development phase. IT'll have breaking changes to the APIs until a first version is released. The roadmap below will give an insight in what will be the focus.
+
+
+## Roadmap and ideas
+  
+  - [**0.0.5**](./CHANGELOG.md#0.0.5) update state outside the view
+  - lifecycle events (oncreate, ondestroy, etc)
+  - payload to call 'actions' with dynamic data
+  - async (for calls to api's)
+  - lazy components using [dynamic imports](https://github.com/tc39/proposal-dynamic-import)
+  - composable `applit`s. 
+
 
 ## Contributing
 
