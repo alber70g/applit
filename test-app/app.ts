@@ -1,7 +1,7 @@
-import { applit, Action } from '../src/index';
-import { html } from 'lit-html/lib/lit-extended';
+import { applit } from '../src/index';
+import { html, render } from 'lit-html/lib/lit-extended';
 import { until } from 'lit-html/lib/until';
-import { counter, up } from './counter';
+import { counter } from './counter';
 import { link } from './link';
 
 export type AppState = {
@@ -16,7 +16,7 @@ export type AppState = {
 };
 
 const layout = (bind, view, state) => html`
-    <p>
+    <div>
       ${link(bind, {
         href: '/',
         title: 'Home',
@@ -32,7 +32,7 @@ const layout = (bind, view, state) => html`
         title: 'lazy',
         view: 'lazy',
       })} 
-    </p>
+    </div>
     ${view}
       
     <fieldset style="margin-top: 20px; position: absolute; top: 10px; right: 10px; min-width: 350px">

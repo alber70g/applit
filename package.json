@@ -9,6 +9,7 @@
     "start:watch": "tsc --watch",
     "clean": "rm -rf dist",
     "start:example": "rm -rf build-testapp .cache; parcel ./test-app/index.html -d build-testapp --open",
+    "build:example": "rm -rf build-testapp .cache; parcel build ./test-app/index.html -d build-testapp --experimental-scope-hoisting",
     "test": "jest"
   },
   "keywords": [
