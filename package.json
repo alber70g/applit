@@ -8,7 +8,7 @@
     "start": "tsc",
     "start:watch": "tsc --watch",
     "clean": "rm -rf dist",
-    "start:example": "parcel ./test-app/index.html -d build-testapp --open",
+    "start:example": "rm -rf build-testapp .cache; parcel ./test-app/index.html -d build-testapp --open",
     "test": "jest"
   },
   "keywords": [

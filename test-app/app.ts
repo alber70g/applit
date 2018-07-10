@@ -1,5 +1,6 @@
 import { applit, Action } from '../src/index';
 import { html } from 'lit-html/lib/lit-extended';
+import { until } from 'lit-html/lib/until';
 import { counter, up } from './counter';
 import { link } from './link';
 
@@ -26,6 +27,11 @@ const layout = (bind, view, state) => html`
         title: 'Counter',
         view: 'counter',
       })} 
+      ${link(bind, {
+        href: '/lazy',
+        title: 'lazy',
+        view: 'lazy',
+      })} 
     </p>
     ${view}
       
@@ -46,6 +52,16 @@ const bind = applit<AppState>(
       case 'counter':
         return layout(bind, counter(bind, state), state);
 
+      case 'lazy':
+        return layout(
+          bind,
+          until(
+            import('./lazy').then(({ lazy }) => lazy(bind, state)),
+            html`<div>Loading...</div>`
+          ),
+          state
+        );
+
       case 'home':
       default:
         return layout(bind, html`<h1>Home</h1>`, state);
@@ -57,4 +73,4 @@ const bind = applit<AppState>(
   document.body
 );
 
-setInterval(() => bind(up), 1000);
+// setInterval(() => bind(up), 1000);
