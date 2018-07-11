@@ -7,6 +7,50 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-  <script src="app.ts"></script> 
+  <script type="module">
+    import './test-h.js';
+  </script>
+  <!-- <script src="app.ts"></script>  -->
+
+  <!-- <script type="module">
+    import { html, render } from "../node_modules/lit-html/lit-html.js";
+
+    const differentView = ({name2}) => html`
+    <div>
+      Name2:
+      ${name2}
+    </div>
+    `
+
+    const makeView = ({count, name, name2, list}) => html`
+      <div>
+        THis is my ${name}
+      </div>
+      <div>
+        This is the count ${count}
+        ${differentView({name2})}
+      </div>
+      ${
+        repeat(list, (x) => x.id, (el) => html`${el.id > 10 ? html`hetzelfde` : html`ander`}`)
+      }
+    `
+    
+    render(makeView({count: 1, name: "albert"}), document.body)
+    
+    setTimeout(() => {
+      render(makeView({count: 2, name: "albert", name2: "iemand"}), document.body)
+      
+    }, 1000);
+    setTimeout(() => {
+      render(makeView({count: 2, name: "Lasse", name2: "iemand"}), document.body)
+      
+    }, 2000);
+  </script>
+  <template>
+    <li>
+      <a:href></a:href>
+    </li>
+
+  </template> -->
 </body>
 </html>

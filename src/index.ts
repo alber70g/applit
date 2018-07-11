@@ -19,6 +19,7 @@ const bindViewFactory = <TState>(
   };
   const bindViewFn = (action: Action<TState>) => {
     return directive((attributePart: AttributePart) => {
+      debugger;
       if (attributePart.name.indexOf('on') === 0) {
         // element.onclick = () => {}
         (<any>attributePart.element)[attributePart.name] = (ev: Event) => {
