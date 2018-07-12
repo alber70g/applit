@@ -1,5 +1,5 @@
-import { applit } from '../src/index';
-import { html, render } from 'lit-html/lib/lit-extended';
+import { applit } from '../../src/index';
+import { html, render } from 'lit-html';
 import { until } from 'lit-html/lib/until';
 import { counter } from './counter';
 import { link } from './link';

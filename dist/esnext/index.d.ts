@@ -1,4 +1,4 @@
-import { TemplateResult, AttributePart, DirectiveFn } from 'lit-html';
+import { TemplateResult, AttributePart, DirectiveFn } from '../node_modules/lit-html/lit-html';
 export declare const applit: <TState>(init: () => TState, templateFn: View<TState>, element?: HTMLElement) => (action: Action<TState>) => void;
 export declare type View<TState> = (bind: BindFn<TState>, state: TState) => TemplateResult;
 export declare type BindFn<TState> = (action: Action<TState>, path?: string) => DirectiveFn<AttributePart>;

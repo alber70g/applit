@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Page Title</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+  
+  <script type="module">
+    import { html, render } from './node_modules/lit-html/lib/lit-extended.js';
+    import { until } from './node_modules/lit-html/lib/until.js';
+
+    function loadLazy() {
+      render(view(until(
+        import('./lazy.js').then(it => it.tpl({ count: 0 })), 'loading')), 
+        document.getElementById('app')
+      );
+    }
+
+    const view = (view) => html`
+      <button on-click="${loadLazy}">Load</button> the view:
+      <div>
+        ${view}
+      </div>
+    `;
+
+    render(view(html`non-lazy`), document.getElementById('app'));
+  </script>
+
+  <div id="app"></div>
+</body>
+</html>

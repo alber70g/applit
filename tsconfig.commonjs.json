@@ -1,0 +1,9 @@
+{
+  "$schema": "http://json.schemastore.org/tsconfig.json",
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "module": "commonjs",
+    "outDir": "./dist/commonjs",
+    "declaration": false
+  }
+}

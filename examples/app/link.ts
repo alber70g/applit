@@ -1,4 +1,4 @@
-import { html } from 'lit-html/lib/lit-extended';
+import { html } from 'lit-html';
 import { AppState } from './app';
 import { Action } from '../src';
 

@@ -1,0 +1,9 @@
+{
+  "$schema": "http://json.schemastore.org/tsconfig.json",
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "module": "umd",
+    "outDir": "./dist/umd",
+    "declaration": false
+  }
+}

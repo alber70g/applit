@@ -1,10 +1,11 @@
+import { render } from '../node_modules/lit-html/lib/lit-extended';
+
 import {
-  TemplateResult,
   directive,
+  TemplateResult,
   AttributePart,
   DirectiveFn,
-  render,
-} from 'lit-html';
+} from '../node_modules/lit-html/lit-html';
 
 const bindViewFactory = <TState>(
   state: TState,

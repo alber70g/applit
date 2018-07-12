@@ -2,14 +2,14 @@
   "name": "applit",
   "version": "0.0.5",
   "description": "Applit 🌶: Micro Web App Framework for building Stateful Apps with lit-html 🔥 View Layer",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "dist/commonjs/index.js",
+  "jsnext:main": "dist/esnext/index.js",
+  "types": "dist/esnext/index.d.ts",
   "scripts": {
-    "start": "tsc",
+    "start": "rm -rf dist; ls | grep tsconfig | xargs -n1 tsc -p",
     "start:watch": "tsc --watch",
     "clean": "rm -rf dist",
-    "start:example": "rm -rf build-testapp .cache; parcel ./test-app/index.html -d build-testapp --open",
-    "build:example": "rm -rf build-testapp .cache; parcel build ./test-app/index.html -d build-testapp --experimental-scope-hoisting",
+    "start:example": "parcel ./examples/app/index.html -d ./examples/app/.parcel --open",
     "test": "jest"
   },
   "keywords": [
@@ -27,6 +27,7 @@
   },
   "devDependencies": {
     "jest": "^23.2.0",
+    "parcel-bundler": "^1.9.4",
     "typescript": "^2.9.2",
     "typescript-lit-html-plugin": "^0.4.1"
   }
