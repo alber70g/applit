@@ -1,6 +1,6 @@
 {
   "name": "applit",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Applit 🌶: Micro Web App Framework for building Stateful Apps with lit-html 🔥 View Layer",
   "main": "dist/commonjs/index.js",
   "jsnext:main": "dist/esnext/index.js",
