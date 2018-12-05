@@ -1,6 +1,6 @@
-import { applit } from '../../src/index';
-import { html, render } from 'lit-html';
+import { html, TemplateResult } from 'lit-html';
 import { until } from 'lit-html/lib/until';
+import { applit } from '../../src/index';
 import { counter } from './counter';
 import { link } from './link';
 
@@ -21,21 +21,22 @@ const layout = (bind, view, state) => html`
         href: '/',
         title: 'Home',
         view: 'home',
-      })} 
+      })}
       ${link(bind, {
         href: '/counter',
         title: 'Counter',
         view: 'counter',
-      })} 
+      })}
       ${link(bind, {
         href: '/lazy',
         title: 'lazy',
         view: 'lazy',
-      })} 
+      })}
     </div>
     ${view}
-      
-    <fieldset style="margin-top: 20px; position: absolute; top: 10px; right: 10px; min-width: 350px">
+
+    <fieldset
+      style="margin-top: 20px; position: absolute; top: 10px; right: 10px; min-width: 350px;">
       <legend>Current state</legend>
       <pre>${JSON.stringify(state, null, 2)}</pre>
     </fieldset>

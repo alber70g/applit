@@ -28,6 +28,8 @@
   "devDependencies": {
     "jest": "^23.2.0",
     "parcel-bundler": "^1.9.4",
+    "tslint": "^5.10.0",
+    "tslint-config-airbnb": "^5.9.2",
     "typescript": "^2.9.2",
     "typescript-lit-html-plugin": "^0.4.1"
   }
