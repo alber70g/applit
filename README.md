@@ -1,3 +1,5 @@
+> **Notice**: be aware this library uses outdated libraries of lit-html. If you like me to update, please use [this issue #1](https://github.com/alber70g/applit/issues/1) so I can track the demand.
+
 # What is Applit 🌶
 
 Applit is a web framework that drastically decreases the concepts to learn in order to build an application.
